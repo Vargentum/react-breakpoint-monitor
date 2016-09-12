@@ -12,17 +12,28 @@ export default class BreakpointMonitor extends Component {
     md: 768,
     lg: 960
   }
+  static defaultStyles = {
+    backgroundColor: 'rgba(0,0,0,.5)',
+    color: '#fff',
+    position: 'fixed',
+    top: 0,
+    right: 0,
+    zIndex: 9999,
+    padding: '20px',
+    fontSize: '16px',
+    fontFamily: 'Sans Serif',
+    textTransform: 'uppercase'
+  }
   static propTypes = {
     bp: PT.object.isRequired,
     overwriteDefaultBp: PT.bool,
-    showWidth: PT.bool,
     __windowWidth: PT.number // for testing purposes
   }
   static defaultProps = {
     bp: {},
     overwriteDefaultBp: false,
     throttleBy: 5,
-    showWidth: true
+    styles: {},
   }
   state = {
     currentBpLabel: 'No bp',
@@ -57,14 +68,15 @@ export default class BreakpointMonitor extends Component {
     const currentBpLabel = u.findKey(this.state.finalBp, this.isWWW(width))
     this.setState({currentBpLabel});
   }
-
-  isWWW = (width) => (prevBp = 0, currentBp, nextBp = Infinity) => { // Within Window Width
-    console.log(width, currentBp, '---------')
+  // Within Window Width
+  isWWW = (width) => (prevBp = 0, currentBp, nextBp = Infinity) => { 
     return prevBp <= width && width < nextBp
   }
   render() {
+    const {bp, overwriteDefaultBp, throttleBy, styles, ...attrs} = this.props
+    const style = Object.assign({}, BreakpointMonitor.defaultStyles, this.props.styles)
     return (
-      <div>
+      <div {...attrs} style={style}>
         {this.state.currentBpLabel}
       </div>
     )
