@@ -16,6 +16,7 @@
     "test-watch": "npm run testonly -- --watch --watch-extensions js",
     "storybook": "start-storybook -p 9010",
     "publish-storybook": "bash .scripts/publish_storybook.sh",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "commit": "git-cz"
   },
   "config": {
@@ -49,6 +50,7 @@
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
     "react-dom": "^15.0.0",
+    "semantic-release": "4.3.5",
     "sinon": "^1.17.3"
   },
   "peerDependencies": {
