@@ -26,17 +26,18 @@ export default class BreakpointMonitor extends Component {
   }
   static propTypes = {
     bp: PT.object.isRequired,
-    overwriteDefaultBp: PT.bool,
-    __windowWidth: PT.number // for testing purposes
+    overwriteDefaultBp: PT.bool
+    throttleBy: PT.number,
+    style: PT.object
   }
   static defaultProps = {
     bp: {},
     overwriteDefaultBp: false,
     throttleBy: 5,
-    styles: {},
+    style: {},
   }
   state = {
-    currentBpLabel: 'No bp',
+    currentBpLabel: '-',
     finalBp: {...BreakpointMonitor.defaultBp}
   }
   componentDidMount () {
@@ -73,8 +74,8 @@ export default class BreakpointMonitor extends Component {
     return prevBp <= width && width < nextBp
   }
   render() {
-    const {bp, overwriteDefaultBp, throttleBy, styles, ...attrs} = this.props
-    const style = Object.assign({}, BreakpointMonitor.defaultStyles, this.props.styles)
+    const {bp, overwriteDefaultBp, throttleBy, style, ...attrs} = this.props
+    const style = Object.assign({}, BreakpointMonitor.defaultStyles, this.props.style)
     return (
       <div {...attrs} style={style}>
         {this.state.currentBpLabel}
