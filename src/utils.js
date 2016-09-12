@@ -7,8 +7,6 @@ export function findKey(o, fn) {
   );
 }
 
-// value -> one two keys[idx-1] keys[idx+1]
-
 export function safeWindow(smth, ...args) {
   return window
     ? typeof window[smth] === 'function'
