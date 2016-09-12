@@ -45,8 +45,8 @@ export default class BreakpointMonitor extends Component {
       .then(this.findCurrentBpLabel)
       .then(() => {
         u.safeWindow(
-          'addEventListener', 
-          'resize', 
+          'addEventListener',
+          'resize',
           u.throttle(this.findCurrentBpLabel, this.props.throttleBy)
         )
       })
@@ -55,7 +55,7 @@ export default class BreakpointMonitor extends Component {
     u.safeWindow('removeEventListener', 'resize', this.findCurrentBpLabel)
   }
   componentWillReceiveProps (nextProps) {
-    this.composeFinalBp(nextProps)  
+    this.composeFinalBp(nextProps)
   }
   composeFinalBp({bp, overwriteDefaultBp}) {
     const finalBp = overwriteDefaultBp
@@ -69,7 +69,7 @@ export default class BreakpointMonitor extends Component {
     this.setState({currentBpLabel});
   }
   // Within Window Width
-  isWWW = (width) => (prevBp = 0, currentBp, nextBp = Infinity) => { 
+  isWWW = (width) => (prevBp = 0, currentBp, nextBp = Infinity) => {
     return prevBp <= width && width < nextBp
   }
   render() {

@@ -4,26 +4,26 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 const { describe, it } = global;
 
-import * as u from '../utils'
-import BreakpointMonitor from '../index'
+import * as u from '../utils';
+import BreakpointMonitor from '../index';
 
 
 /* -----------------------------
   Utils
 ----------------------------- */
-describe(`u.findKey`, () => {
-  const val = {one: 1, two: 2, three: 3}
-  const callback = (prev, current, next) => prev === 1 && current === 2 && next === 3
-  const expected = 'two'
+describe('u.findKey', () => {
+  const val = { one: 1, two: 2, three: 3 };
+  const callback = (prev, current, next) => prev === 1 && current === 2 && next === 3;
+  const expected = 'two';
 
-  it(`should return first occurrence when callback returns truthy.`, () => {
-    expect(u.findKey(val, callback)).to.equal(expected)
-  })
-})
+  it('should return first occurrence when callback returns truthy.', () => {
+    expect(u.findKey(val, callback)).to.equal(expected);
+  });
+});
 
 
 /* -----------------------------
-  BreakpointMonitor  
+  BreakpointMonitor
 ----------------------------- */
 
 // describe('BreakpointMonitor', () => {

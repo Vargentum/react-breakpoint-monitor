@@ -5,4 +5,4 @@ import BreakpointMonitor from '../index';
 storiesOf('BreakpointMonitor', module)
   .add('default view', () => (
     <BreakpointMonitor />
-  ))
+  ));
