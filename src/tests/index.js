@@ -7,6 +7,10 @@ const { describe, it } = global;
 import * as u from '../utils'
 import BreakpointMonitor from '../index'
 
+
+/* -----------------------------
+  Utils
+----------------------------- */
 describe(`u.findKey`, () => {
   const val = {one: 1, two: 2, three: 3}
   const callback = (prev, current, next) => prev === 1 && current === 2 && next === 3
@@ -19,38 +23,24 @@ describe(`u.findKey`, () => {
 
 
 /* -----------------------------
-  
+  BreakpointMonitor  
 ----------------------------- */
 
-describe('BreakpointMonitor', () => {
-  const defaultBp = BreakpointMonitor.defaultBp
+// describe('BreakpointMonitor', () => {
+//   const defaultBp = BreakpointMonitor.defaultBp
 
-  function testEquality(width, label, ...props) {
-    const wrapper = mount(<BreakpointMonitor __windowWidth={width} {...props} />);
-    expect(wrapper.text()).to.equal(label);
-  }
+//   function testEquality(width, label, ...props) {
+//     const wrapper = mount(<BreakpointMonitor __windowWidth={width} {...props} />);
+//     expect(wrapper.text()).to.equal(label);
+//   }
 
-  it(`should show the current breakpoint`, () => {
-    testEquality(110, 'xs')
-    testEquality(430, 'xs')
-    testEquality(480, 'sm')
-    testEquality(515, 'sm')
-    testEquality(768, 'md')
-    testEquality(960, 'lg')
-    testEquality(1960, 'lg')
-  });
-
-  // it('should handle the click event', () => {
-  //   const clickMe = sinon.stub();
-  //   // Here we do a JSDOM render. So, that's why we need to
-  //   // wrap this with a div.
-  //   const wrapper = mount(
-  //     <div>
-  //       <Button onClick={ clickMe }>ClickMe</Button>
-  //     </div>
-  //   );
-
-  //   wrapper.find('button').simulate('click');
-  //   expect(clickMe.callCount).to.be.equal(1);
-  // });
-});
+//   it(`should show the current breakpoint`, () => {
+//     testEquality(110, 'xs')
+//     testEquality(430, 'xs')
+//     testEquality(480, 'sm')
+//     testEquality(515, 'sm')
+//     testEquality(768, 'md')
+//     testEquality(960, 'lg')
+//     testEquality(1960, 'lg')
+//   });
+// });
