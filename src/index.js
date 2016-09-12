@@ -16,7 +16,7 @@ export default class BreakpointMonitor extends Component {
     backgroundColor: 'rgba(0,0,0,.5)',
     color: '#fff',
     position: 'fixed',
-    top: 0,
+    top: '25px',
     right: 0,
     zIndex: 9999,
     padding: '20px',
