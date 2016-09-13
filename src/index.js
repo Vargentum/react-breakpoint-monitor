@@ -26,7 +26,7 @@ export default class BreakpointMonitor extends Component {
   }
   static propTypes = {
     bp: PT.object.isRequired,
-    overwriteDefaultBp: PT.bool
+    overwriteDefaultBp: PT.bool,
     throttleBy: PT.number,
     style: PT.object
   }
