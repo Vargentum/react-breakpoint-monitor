@@ -75,9 +75,9 @@ export default class BreakpointMonitor extends Component {
   }
   render() {
     const {bp, overwriteDefaultBp, throttleBy, style, ...attrs} = this.props
-    const style = Object.assign({}, BreakpointMonitor.defaultStyles, this.props.style)
+    const fullStyle = Object.assign({}, BreakpointMonitor.defaultStyles, style)
     return (
-      <div {...attrs} style={style}>
+      <div {...attrs} style={fullStyle}>
         {this.state.currentBpLabel}
       </div>
     )
